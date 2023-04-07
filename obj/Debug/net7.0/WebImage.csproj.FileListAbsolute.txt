@@ -1,0 +1,15 @@
+C:\Users\schulte.jud\Downloads\WebImage\bin\Debug\net7.0\WebImage.exe
+C:\Users\schulte.jud\Downloads\WebImage\bin\Debug\net7.0\WebImage.deps.json
+C:\Users\schulte.jud\Downloads\WebImage\bin\Debug\net7.0\WebImage.runtimeconfig.json
+C:\Users\schulte.jud\Downloads\WebImage\bin\Debug\net7.0\WebImage.dll
+C:\Users\schulte.jud\Downloads\WebImage\bin\Debug\net7.0\WebImage.pdb
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.csproj.AssemblyReference.cache
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.AssemblyInfoInputs.cache
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.AssemblyInfo.cs
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.csproj.CoreCompileInputs.cache
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.dll
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\refint\WebImage.dll
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.pdb
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\WebImage.genruntimeconfig.cache
+C:\Users\schulte.jud\Downloads\WebImage\obj\Debug\net7.0\ref\WebImage.dll
