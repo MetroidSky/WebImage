@@ -20,6 +20,11 @@ using System.Text.RegularExpressions;
         public static Uri uri { get; set; }
         static async Task DownloadImages()
         {
+            if (!Directory.Exists("Downloaded Images"))
+            {
+                Directory.CreateDirectory("Downloaded Images");
+            }
+
             Regex imageURL = new Regex("(https?:)//[^'\\\"<>]+?\\.(jpg|jpeg|gif|png|svg)");
             Regex imgTag = new Regex("<img.+?src=[\"'](.+?)[\"'].*?>");
 
@@ -29,7 +34,7 @@ using System.Text.RegularExpressions;
                 {
                     if (imageURL.IsMatch(uri.ToString()))
                     {
-                        using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\" + uri.LocalPath, FileMode.Create, FileAccess.Write))
+                        using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\Downloaded Images\\" + uri.LocalPath, FileMode.Create, FileAccess.Write))
                         {
                             Console.WriteLine($"Downloading file {uri.ToString()}...");
                             await content.CopyToAsync(file);
@@ -53,7 +58,7 @@ using System.Text.RegularExpressions;
                                 {
                                     try
                                     {
-                                        using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\" + imageUri.LocalPath, FileMode.Create, FileAccess.Write))
+                                        using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\Downloaded Images\\" + imageUri.LocalPath, FileMode.Create, FileAccess.Write))
                                         {
                                             await imageContent.CopyToAsync(file);
                                         }
@@ -61,7 +66,7 @@ using System.Text.RegularExpressions;
 
                                     catch (DirectoryNotFoundException)
                                     {
-                                        using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\" + (i + 1).ToString() + Path.GetExtension(imageUri.ToString()), FileMode.Create, FileAccess.Write))
+                                        using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\Downloaded Images\\" + (i + 1).ToString() + Path.GetExtension(imageUri.ToString()), FileMode.Create, FileAccess.Write))
                                         {
                                             await imageContent.CopyToAsync(file);
                                         }
