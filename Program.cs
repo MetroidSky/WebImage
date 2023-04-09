@@ -34,10 +34,22 @@ using System.Text.RegularExpressions;
                 {
                     if (imageURL.IsMatch(uri.ToString()))
                     {
-                        using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\Downloaded Images\\" + uri.LocalPath, FileMode.Create, FileAccess.Write))
+                        try
                         {
-                            Console.WriteLine($"Downloading file {uri.ToString()}...");
-                            await content.CopyToAsync(file);
+                            using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\Downloaded Images\\" + uri.LocalPath, FileMode.Create, FileAccess.Write))
+                            {
+                                Console.WriteLine($"Downloading file {uri.ToString()}...");
+                                await content.CopyToAsync(file);
+                            }
+                        }
+
+                        catch (DirectoryNotFoundException)
+                        {
+                            using (FileStream file = new FileStream(Directory.GetCurrentDirectory() + "\\Downloaded Images\\" + "1", FileMode.Create, FileAccess.Write))
+                            {
+                                Console.WriteLine($"Downloading file {uri.ToString()}...");
+                                await content.CopyToAsync(file);
+                            }
                         }
                     }
 
