@@ -86,6 +86,8 @@ using System.Text.RegularExpressions;
                                 }
                             }
                         }
+
+                        Console.WriteLine($"\n{matches.Count} images downloaded.");
                     }
                 }
             }
