@@ -25,7 +25,7 @@ using System.Text.RegularExpressions;
                 Directory.CreateDirectory("Downloaded Images");
             }
 
-            Regex imageURL = new Regex("(https?:)//[^'\\\"<>]+?\\.(jpg|jpeg|gif|png|svg)");
+            Regex imageURL = new Regex("(https?:)//[^'\\\"<>]+?\\.(jpg|jpeg|gif|png|svg|webp)");
             Regex imgTag = new Regex("<img.+?src=[\"'](.+?)[\"'].*?>");
 
             using (HttpResponseMessage res = await new HttpClient().GetAsync(uri))
