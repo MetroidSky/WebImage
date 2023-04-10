@@ -26,7 +26,6 @@ using System.Text.RegularExpressions;
             }
 
             Regex imageURL = new Regex("(https?:)//[^'\\\"<>]+?\\.(jpg|jpeg|gif|png|svg|webp)");
-            Regex imgTag = new Regex("<img.+?src=[\"'](.+?)[\"'].*?>");
 
             using (HttpResponseMessage res = await new HttpClient().GetAsync(uri))
             {
@@ -55,7 +54,7 @@ using System.Text.RegularExpressions;
 
                     else
                     {
-                        var matches = imgTag.Matches(content.ReadAsStringAsync().Result);
+                        var matches = imageURL.Matches(content.ReadAsStringAsync().Result);
 
                         for (int i = 0; i < matches.Count; i++)
                         {
