@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
         {
             Console.WriteLine("Enter URL:");
             uri = new Uri(Console.ReadLine());
+            Console.WriteLine("\nDownloading...\n");
 
             await DownloadImages();
 
@@ -25,7 +26,7 @@ using System.Text.RegularExpressions;
                 Directory.CreateDirectory("Downloaded Images");
             }
 
-            Regex imageURL = new Regex("(https?:)//[^'\\\"<>]+?\\.(jpg|jpeg|gif|png|svg|webp)");
+            Regex imageURL = new Regex("(https?:)?/[^'\\\"<>]+\\.(jpg|jpeg|gif|png|svg|webp)");
 
             using (HttpResponseMessage res = await new HttpClient().GetAsync(uri))
             {
@@ -59,6 +60,20 @@ using System.Text.RegularExpressions;
                         for (int i = 0; i < matches.Count; i++)
                         {
                             string image = Regex.Match(matches[i].ToString(), imageURL.ToString()).ToString();
+                            
+                            if (!(matches[i].ToString().StartsWith("http")))
+                            {
+                                if (uri.ToString().EndsWith("/"))
+                                {
+                                    image = Regex.Match((uri.ToString().Remove(uri.ToString().Length - 1, 1) + matches[i].ToString()), imageURL.ToString()).ToString();
+                                }
+
+                                else
+                                {
+                                    image = Regex.Match((uri.ToString() + matches[i].ToString()), imageURL.ToString()).ToString();
+                                }
+                            }
+
                             Uri imageUri = new Uri(image);
 
                             Console.WriteLine($"Downloading file {image}...");
