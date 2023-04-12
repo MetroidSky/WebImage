@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "fphh313mBtkJE40lG7gKvuNsrJbr1EyzQatIecsNqDW668F8zdWFmenbG58BWPYwSgVg2RjAddZpNEaMFrZ5Uw==",
+  "dgSpecHash": "KhoqE0Uu+Wr9vL2bh1m9LXuG5SwAIJx7mPVYtfl0by4euLsJnjcekl7Vp8qHZ2HXcvzAAzmjxxWvuFFtdan5Yg==",
   "success": true,
   "projectFilePath": "C:\\Users\\schulte.jud\\Downloads\\WebImage\\WebImage.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\schulte.jud\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.4\\microsoft.netcore.app.runtime.win-x64.7.0.4.nupkg.sha512",
+    "C:\\Users\\schulte.jud\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.4\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.4.nupkg.sha512",
+    "C:\\Users\\schulte.jud\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.4\\microsoft.aspnetcore.app.runtime.win-x64.7.0.4.nupkg.sha512"
+  ],
   "logs": []
 }

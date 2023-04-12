@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
     {
         static async Task Main()
         {
+            // Input URL
             Console.WriteLine("Enter URL:");
             uri = new Uri(Console.ReadLine());
             Console.WriteLine("\nDownloading...\n");
@@ -21,6 +22,7 @@ using System.Text.RegularExpressions;
         public static Uri uri { get; set; }
         static async Task DownloadImages()
         {
+            // Create directory to download images to
             if (!Directory.Exists("Downloaded Images"))
             {
                 Directory.CreateDirectory("Downloaded Images");
@@ -32,6 +34,7 @@ using System.Text.RegularExpressions;
             {
                 using (HttpContent content = res.Content)
                 {
+                    // Download the URL if it is already an image
                     if (imageURL.IsMatch(uri.ToString()))
                     {
                         try
@@ -55,12 +58,14 @@ using System.Text.RegularExpressions;
 
                     else
                     {
+                        // Find all image links in URL source code
                         var matches = imageURL.Matches(content.ReadAsStringAsync().Result);
 
                         for (int i = 0; i < matches.Count; i++)
                         {
                             string image = Regex.Match(matches[i].ToString(), imageURL.ToString()).ToString();
-                            
+
+                            // Fix links without an authority 
                             if (!(matches[i].ToString().StartsWith("http")))
                             {
                                 if (uri.ToString().EndsWith("/"))
@@ -77,7 +82,8 @@ using System.Text.RegularExpressions;
                             Uri imageUri = new Uri(image);
 
                             Console.WriteLine($"Downloading file {image}...");
-
+                            
+                            // Download the image
                             using (HttpResponseMessage imageRes = await new HttpClient().GetAsync(image))
                             {
                                 using (HttpContent imageContent = imageRes.Content)
